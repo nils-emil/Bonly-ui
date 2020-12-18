@@ -1,0 +1,41 @@
+<div class="background-container">
+    <div *ngFor="let i of largeBubbles">
+        <div class="bubble" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}">
+            <svg class="svg" viewBox="0 0 120 120">
+                <circle cx="55" cy="55" r="50" class="dashed"/>
+                <foreignObject x="5" y="5" height="100px" width="100px">
+                </foreignObject>
+            </svg>
+        </div>
+    </div>
+    <div *ngFor="let i of smallBubbles">
+        <div class="bubble-sm" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}">
+            <svg class="svg-sm" viewBox="0 0 120 120">
+                <circle cx="55" cy="55" r="50" class="dashed"/>
+                <foreignObject x="5" y="5" height="100px" width="100px">
+                </foreignObject>
+            </svg>
+        </div>
+    </div>
+    <div *ngFor="let i of ribbons">
+        <div class="ribbon" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}">
+            <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4246 10.8205C13.5416 10.4439 12.8187 10.0487 12.256 9.63474C11.6408 9.24191 10.9833 8.74411 10.2837 8.14133C9.54732 7.52287 8.93455 7.02236 8.44541 6.63981C7.90379 6.27836 7.24664 5.93287 6.47398 5.60335C5.88528 5.35228 5.14697 5.14612 4.25906 4.98487C3.35545 4.86041 2.56222 4.78303 1.87937 4.75272C1.15973 4.70673 0.692231 4.68129 0.47688 4.67642L2.12451 0.813092C2.26628 0.786579 2.64964 0.754388 3.27459 0.716517C3.86275 0.662955 4.60863 0.698402 5.51224 0.822858C6.41585 0.947315 7.34597 1.21354 8.30261 1.62152C9.18565 1.99812 9.91638 2.375 10.4948 2.75214C11.0575 3.16607 11.6887 3.67442 12.3883 4.2772C13.0511 4.86428 13.6534 5.33854 14.195 5.69999C14.7209 6.09824 15.407 6.47781 16.2533 6.83872C16.842 7.08979 17.5881 7.27755 18.4917 7.40201C19.3796 7.56326 20.1834 7.66688 20.9031 7.71288C21.5859 7.74319 22.035 7.76078 22.2504 7.76565L20.6027 11.629C20.461 11.6555 20.096 11.6955 19.5078 11.7491C18.8829 11.787 18.1186 11.7437 17.215 11.6192C16.3114 11.4948 15.3813 11.2285 14.4246 10.8205Z"
+                      fill="#0029FF"/>
+            </svg>
+        </div>
+    </div>
+
+    <div *ngFor="let i of triangles">
+        <div *ngIf="i.type == 'UP'" class="arrow arrow-up"
+             [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}"></div>
+        <div *ngIf="i.type == 'DOWN'" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}"
+             class="arrow arrow-down"></div>
+        <div *ngIf="i.type == 'LEFT'" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}"
+             class="arrow arrow-left"></div>
+        <div *ngIf="i.type == 'RIGHT'" [ngStyle]="{'left': i.left + 'vw', 'top': i.top + 'vh'}"
+             class="arrow arrow-right"></div>
+    </div>
+
+</div>
+

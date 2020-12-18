@@ -1,0 +1,31 @@
+.bonly-logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15vh;
+}
+
+.bonly-logo {
+  font-size: 9rem;
+  height: 9rem;
+  color: var(--logo-color);
+  font-family: Rubik Mono One, Montserrat, 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  display: block;
+  font-style: normal;
+}
+
+
+.button-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 15rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  flex-direction: column;
+}

@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+    <jhi-bubble-backend></jhi-bubble-backend>
+
+    <form class="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm">
+        <div class="form-container">
+            <h1 class="pl-15">Create an account</h1>
+            <div class="content-max-width align-center">
+                <ion-item>
+                    <ion-label position="floating">Username</ion-label>
+                    <ion-input formControlName="login"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Repeat Password</ion-label>
+                    <ion-input type="password" formControlName="confirmPassword"></ion-input>
+                </ion-item>
+            </div>
+            <div class="content-max-width align-center mt-20 pl-20 pr-20">
+                <div class="error-message-container">
+                    <div class="error-message-container--inner">
+                        <div class="alert alert-success" *ngIf="success">
+                            <strong>Registration saved!</strong> Please check your email for confirmation.
+                        </div>
+                        <div class="alert alert-danger" *ngIf="error">
+                            <strong>Registration failed!</strong> Please try again later.
+                        </div>
+                        <div class="alert alert-danger" *ngIf="errorUserExists">
+                            <strong>Login name already registered!</strong> Please choose another one.
+                        </div>
+                        <div class="alert alert-danger" *ngIf="errorEmailExists">
+                            <strong>Email is already in use!</strong> Please choose another one.
+                        </div>
+                        <div class="alert alert-danger" *ngIf="doNotMatch">
+                            The password and its confirmation do not match!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="bonly-ui-button" type="submit">
+                Register
+            </button>
+            <button class="bonly-ui-button" type="button" (click)="backToHomePage()">
+                Back
+            </button>
+        </div>
+    </form>
+</ion-content>

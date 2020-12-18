@@ -1,0 +1,15 @@
+
+.registration-input-fields-container {
+    transform: translateY(50%);
+
+    &-bottom {
+        transform: translateY(100%);
+    }
+}
+
+.error-message-container {
+    position: relative;
+    &--inner {
+        position: absolute;
+    }
+}

@@ -1,0 +1,58 @@
+.content-image {
+  width: 100%;
+}
+
+.bonly-image {
+  max-width: 20rem;
+}
+
+button {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  background: #FFFFFF;
+  padding: 1rem;
+  border: 0.4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  max-width: 24rem;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.correct-answer {
+  color: white;
+  border: 0 !important;
+  background: #07d158;
+  outline: none;
+}
+
+.incorrect-answer {
+  border: 0 !important;
+  color: white;
+  background: #f32c22;
+}
+
+.flex-item {
+  width: calc(50% - 40px);
+  border: 1px solid #000;
+  flex-grow: 1;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  outline: none;
+  min-height: 2rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+  text-align: center;
+}

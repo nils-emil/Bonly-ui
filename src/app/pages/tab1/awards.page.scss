@@ -1,0 +1,203 @@
+.award-card-container {
+  width: 100%;
+  max-width: 20rem;
+}
+
+ion-card-header {
+  z-index: 3;
+}
+.award-card {
+  color: white;
+  border-radius: 1.5rem;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  min-height: 20rem;
+  width: 100%;
+}
+
+.award-card--yellow {
+  color: #262627;
+  background-color: #FFC700;
+}
+
+.award-card--blue {
+  background-color: #0029FF;
+}
+
+.award-card--pink {
+  background-color: #ED33B9;
+}
+
+.award-card--footer {
+  bottom: 0;
+  position: absolute;
+}
+
+
+.background-container {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+}
+
+.bubble {
+  position: relative;
+  left: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #FF5CD1;
+  border-radius: 50%;
+}
+
+.ribbon {
+  position: absolute;
+}
+
+.bubble-sm {
+  position: relative;
+  left: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #FF5CD1;
+  border-radius: 50%;
+}
+
+svg {
+  position: relative;
+  left: -0.5rem;
+  bottom: 0.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+circle {
+  fill: transparent;
+  stroke: green;
+  stroke-width: 3;
+}
+
+.solid {
+  stroke-dasharray: none;
+}
+
+.dashed {
+  stroke-dasharray: 8, 8.5;
+}
+
+.dotted {
+  stroke-dasharray: 0.1, 12.5;
+  stroke-linecap: round;
+}
+
+.svg-sm {
+  position: relative;
+  left: -0.25rem;
+  bottom: 0.25rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+
+.arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  &-up {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #E8B70D;
+  }
+
+  &-down {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #E8B70D;
+  }
+
+  &-right {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #E8B70D;
+  }
+
+  &-left {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #E8B70D;
+  }
+}
+
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+@for $i from 0 through 10 {
+  $w: random(100);
+
+  .bubble-pos-#{$i} {
+    left: unquote($w + 'vw');
+    top: unquote($i * 10 + 'vh');
+  }
+}
+
+@for $i from 0 through 10 {
+  $w: random(100);
+  $r: random(100);
+  .ribbon-pos-#{$i} {
+    left: unquote($r + '%');
+    top: unquote($w + '%');
+  }
+}
+
+
+@for $i from 0 through 3 {
+  $w: random(100);
+  $r: random(100);
+  .arrow-1-pos-#{$i} {
+    left: unquote($r + 'vw');
+    top: unquote($w + 'vh');
+  }
+}
+
+@for $i from 0 through 3 {
+  $w: random(100);
+  $r: random(100);
+  .arrow-2-pos-#{$i} {
+    left: unquote($r + 'vw');
+    top: unquote($w + 'vh');
+  }
+}
+
+
+@for $i from 0 through 3 {
+  $w: random(100);
+  $r: random(100);
+  .arrow-3-pos-#{$i} {
+    left: unquote($r + 'vw');
+    top: unquote($w + 'vh');
+  }
+}
+
+
+@for $i from 0 through 3 {
+  $w: random(100);
+  $r: random(100);
+  .arrow-4-pos-#{$i} {
+    left: unquote($r + 'vw');
+    top: unquote($w + 'vh');
+  }
+}
+
+
+.my-custom-class {
+  width: 200rem;
+}

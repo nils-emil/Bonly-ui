@@ -1,0 +1,171 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+p {
+  margin: 0;
+}
+
+.bonly-ui-button {
+  background: var(--ion-color-primary);
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  padding: 1rem;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 15rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  flex-direction: column;
+}
+
+.content-max-width {
+  width: 80vw;
+  max-width: 20rem;
+
+  & > ion-item {
+    padding-right: 1rem;
+  }
+}
+
+
+.align-center {
+  margin: 0 auto;
+}
+
+.fade-in {
+  position: relative;
+  animation: fadein .76s forwards ease-out;
+}
+
+@keyframes fadein {
+  0% {
+   left: -100vw;
+    opacity: 0;
+  }
+  25% {
+    left: -50vw;
+    opacity: 0;
+  }
+  70% {
+    left: 10vw;
+    opacity: 0.75;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+.alert {
+  &-danger {
+    color: #ED33B9;
+  }
+
+  &-success {
+    color: #0029FF;
+  }
+}
+
+.form-container {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-height: 700px) {
+  .form-container {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+ion-card {
+  max-width: 30rem;
+}
+
+ion-content > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prize-registration-modal .modal-wrapper {
+  min-height: 80vh;
+  position: absolute;
+  display: block;
+}
+
+.max-width-toast {
+  --width: 22rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.text-align-right {
+  text-align: right;
+}

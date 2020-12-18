@@ -1,0 +1,104 @@
+<ion-content [fullscreen]="true">
+    <jhi-bubble-backend></jhi-bubble-backend>
+    <form name="form" role="form" (ngSubmit)="save()" [formGroup]="settingsForm" *ngIf="account" novalidate>
+        <div class="form-container content-max-width align-center">
+            <h1 class="pl-15">Update account</h1>
+            <ion-item>
+                <ion-label position="floating">Username</ion-label>
+                <ion-input type="text" formControlName="login"></ion-input>
+            </ion-item>
+            <div class="form-group">
+                <div
+                        *ngIf="settingsForm.get('login')!.invalid && (settingsForm.get('login')!.dirty || settingsForm.get('login')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('login')?.errors?.required"
+                           jhiTranslate="settings.messages.validate.login.required">
+                        Username name is required.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('login')?.errors?.minlength"
+                           jhiTranslate="settings.messages.validate.login.minlength">
+                        Your username is required to be at least 1 character.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('login')?.errors?.maxlength"
+                           jhiTranslate="settings.messages.validate.login.maxlength">
+                        Your username cannot be longer than 50 characters.
+                    </small>
+                </div>
+            </div>
+
+            <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+            <div class="form-group">
+
+                <div
+                        *ngIf="settingsForm.get('email')!.invalid && (settingsForm.get('email')!.dirty || settingsForm.get('email')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('email')?.errors?.required">
+                        Your email is required.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('email')?.errors?.email">
+                        Your email is invalid.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('email')?.errors?.minlength">
+                        Your email is required to be at least 5 characters.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="settingsForm.get('email')?.errors?.maxlength">
+                        Your email cannot be longer than 100 characters.
+                    </small>
+                </div>
+            </div>
+
+            <div [className]="showMoreInpts ? 'height-animatation' : 'display-none'">
+                <ion-item  class="mt-10 pr-15">
+                    <ion-label>Born</ion-label>
+                    <ion-datetime id="age" formControlName="age" displayFormat="YYYY" min="1940" max="2010"></ion-datetime>
+                </ion-item>
+
+
+                <div class="button-container-gender mt-15">
+                    <ion-button style="width: 45%" [disabled]="account.gender === 'MALE'" color=""
+                                (click)="selectGender('MALE')">MALE
+                    </ion-button>
+
+                    <ion-button style="width: 45%" [disabled]="account.gender === 'FEMALE'" color=""
+                                (click)="selectGender('FEMALE')">FEMALE
+                    </ion-button>
+
+                </div>
+            </div>
+
+
+            <div class="text-align-right mt-30">
+                <span *ngIf="!showMoreInpts" (click)="showMoreInpts = true">More...</span>
+                <span *ngIf="showMoreInpts" (click)="showMoreInpts = false">See less..</span>
+            </div>
+
+
+            <div class="flex-col">
+                <ion-button type="submit" color="primary">
+                    Save
+                </ion-button>
+
+                <ion-button type="button" (click)="routeToPassWordChange()" color="primary">
+                    Change password
+                </ion-button>
+                <ion-button type="button" (click)="logout()" color="secondary">
+                    Logout
+                </ion-button>
+            </div>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,27 @@
+.button-container-gender {
+  display: flex;
+  justify-content: center;
+}
+
+
+.flex-col {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.height-animatation {
+  position: relative;
+  animation: heightAnimation .25s forwards ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes heightAnimation {
+  0% {
+   height: 0;
+  }
+  100% {
+    height: 8rem
+  }
+}

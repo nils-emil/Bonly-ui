@@ -1,0 +1,108 @@
+.background-container {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  z-index: -2;
+
+}
+
+.bubble {
+  position: relative;
+  left: 2rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 3;
+  background-color: #F9E900;
+  border-radius: 50%;
+}
+
+.ribbon {
+  position: absolute;
+  z-index: 2;
+}
+
+.bubble-sm {
+  position: relative;
+  left: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #F9E900;
+  border-radius: 50%;
+}
+
+svg {
+  position: relative;
+  left: -0.5rem;
+  bottom: 0.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+circle {
+  fill: transparent;
+  stroke: green;
+  stroke-width: 3;
+}
+
+.solid {
+  stroke-dasharray: none;
+}
+
+.dashed {
+  stroke-dasharray: 8, 8.5;
+}
+
+.dotted {
+  stroke-dasharray: 0.1, 12.5;
+  stroke-linecap: round;
+}
+
+.svg-sm {
+  position: relative;
+  left: -0.25rem;
+  bottom: 0.25rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+
+.arrow {
+  z-index: -1;
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  &-up {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #ED33B9;
+  }
+
+  &-down {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #ED33B9;
+  }
+
+  &-right {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #ED33B9;
+  }
+
+  &-left {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #ED33B9;
+  }
+}
+
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+
+$colors: (#d13447, #ffbf00, #263672);
+
