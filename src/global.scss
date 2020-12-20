@@ -169,3 +169,13 @@ ion-content > div {
 .text-align-right {
   text-align: right;
 }
+
+
+.center-small-text {
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  line-height: 2;
+}

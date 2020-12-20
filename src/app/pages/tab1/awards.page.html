@@ -47,7 +47,7 @@
                 <ion-card-content class="award-card--footer">
                     <div class="lottery-winner">
                         <p class="secondary">Prize:</p>
-                        <p class="primary">Apple Iphone 11</p>
+                        <p class="primary">{{prize.title}}1</p>
                     </div>
                 </ion-card-content>
             </ion-card>
@@ -55,7 +55,7 @@
     </div>
     <div *ngIf="!prizesExist">
         <div class="full-height">
-            <div class="center">
+            <div class="text-center center-small-text">
                 <p>Oops!</p>
                 <p>Prizes currently available</p>
                 <p>Try again later</p>

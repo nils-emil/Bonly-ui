@@ -21,7 +21,8 @@ export class PrizeRegistrationModalComponent implements OnInit {
   @Input() id;
   @Input() image;
   @Input() type;
-  @Input() winnerId;
+  @Input() winner;
+  @Input() title;
 
   constructor(
       private accountSercice: AccountService,
