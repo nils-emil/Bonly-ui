@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import {IPrize} from "../../shared/model/prize.model";
-import {SERVER_API_URL} from "../../app.constants";
 import {createRequestOption} from "../../shared/util/request-util";
+import {SERVER_API_URL} from "../../../environments/environment";
 
 
 type EntityResponseType = HttpResponse<IPrize>;
@@ -14,7 +14,6 @@ type EntityArrayResponseType = HttpResponse<IPrize[]>;
 @Injectable({ providedIn: 'root' })
 export class PrizeService {
   public resourceUrl = SERVER_API_URL + 'api/prizes';
-  public clientResourceUrl = SERVER_API_URL + 'api/client/prizes';
 
   constructor(protected http: HttpClient) {}
 

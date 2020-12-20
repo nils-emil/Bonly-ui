@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of, ReplaySubject} from 'rxjs';
 import {catchError, shareReplay, tap} from 'rxjs/operators';
-import {SERVER_API_URL} from "../../app.constants";
 import {Account} from '../user/account.model';
+import {SERVER_API_URL} from "../../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class AccountService {

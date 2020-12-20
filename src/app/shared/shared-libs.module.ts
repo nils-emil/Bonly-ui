@@ -5,7 +5,7 @@ import {BubbleBackendComponent} from "./components/bubble-backend/bubble-backend
 
 @NgModule({
   declarations: [BubbleBackendComponent],
-
+  imports: [ CommonModule],
   exports: [
     FormsModule,
     CommonModule,

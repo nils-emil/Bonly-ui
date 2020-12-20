@@ -4,8 +4,8 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 
-import {SERVER_API_URL} from '../../app.constants';
 import {Login} from "../login/login.model";
+import {SERVER_API_URL} from "../../../environments/environment";
 
 type JwtToken = {
   id_token: string;
@@ -22,7 +22,6 @@ export class AuthServerProvider {
   }
 
   login(credentials: Login): Observable<void> {
-    console.log(SERVER_API_URL + 'api/authenticate')
     return this.http
         .post<JwtToken>(SERVER_API_URL + 'api/authenticate', credentials)
         .pipe(map(response => this.authenticateSuccess(response, credentials.rememberMe)));

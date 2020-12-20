@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import {IPrizeRegistration} from "../../../shared/model/prize-registration.model";
-import {SERVER_API_URL} from "../../../app.constants";
 import {createRequestOption} from "../../../shared/util/request-util";
+import {SERVER_API_URL} from "../../../../environments/environment";
 
 
 type EntityResponseType = HttpResponse<IPrizeRegistration>;

@@ -3,9 +3,9 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {IAdvertisement} from "../../shared/model/advertisement.model";
-import {SERVER_API_URL} from "../../app.constants";
 import {createRequestOption} from "../../shared/util/request-util";
 import * as moment from "moment";
+import {SERVER_API_URL} from "../../../environments/environment";
 
 type EntityResponseType = HttpResponse<IAdvertisement>;
 type EntityArrayResponseType = HttpResponse<IAdvertisement[]>;
