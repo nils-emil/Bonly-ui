@@ -50,6 +50,10 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'account/activate',
+    loadChildren: () => import('../pages/activate/activate.module').then(m => m.ActivatePageModule),
+  },
+  {
     path: 'home',
     loadChildren: () => import('../pages/home/home.module').then(m => m.HomePageModule),
   },
