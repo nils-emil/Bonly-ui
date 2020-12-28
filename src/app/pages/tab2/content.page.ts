@@ -19,7 +19,7 @@ export class ContentPage implements OnInit {
     public answerSubmitted = false;
     public loading = true;
     public imageDownload = SERVER_API_URL + "api/image/";
-    private placeholderText: any;
+    public placeholderText: any;
 
     constructor(private adService: AdvertisementService, public toastController: ToastController) {
     }

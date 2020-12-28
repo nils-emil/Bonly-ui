@@ -7,7 +7,7 @@ import {ContactService} from "./contact.service";
   styleUrls: ['contact.page.scss']
 })
 export class ContactPage {
-  private placeholderText: any;
+  public placeholderText: any;
 
   constructor(private contactService: ContactService) {
   }

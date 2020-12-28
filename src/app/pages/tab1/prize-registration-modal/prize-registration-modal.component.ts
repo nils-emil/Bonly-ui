@@ -24,7 +24,7 @@ export class PrizeRegistrationModalComponent implements OnInit {
   @Input() winner;
   @Input() title;
   public imageDownload = SERVER_API_URL + "api/image/";
-  private numberOfTickets: number | null;
+  public numberOfTickets: number | null;
   constructor(
       private accountSercice: AccountService,
       public prizeRegistrationService: PrizeRegistrationService,
@@ -44,7 +44,7 @@ export class PrizeRegistrationModalComponent implements OnInit {
       this.color = "tertiary"
     }
     this.prizeRegistrationService.findNumberOfRegistraionsByPrizeId(this.id).subscribe(e => {
-      this.numberOfTickets = e.body;
+      this.numberOfTickets = e.body['count'];
     });
 
     this.accountSercice.getAccount().subscribe(e => {

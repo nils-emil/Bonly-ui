@@ -16,10 +16,10 @@
             </ion-card-header>
         </ion-card>
 
-        <ion-card style="width: 90%" *ngIf="numberOfTickets && numberOfTickets.count > 0">
+        <ion-card style="width: 90%" *ngIf="numberOfTickets && numberOfTickets > 0">
             <ion-card-header>
                 <ion-card-subtitle>
-                    I have {{ numberOfTickets.count }}
+                    I have {{ numberOfTickets }}
                     <ion-icon name="ticket" color="{{color}}"></ion-icon>
                     tickets in the lottery
                 </ion-card-subtitle>
