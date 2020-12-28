@@ -10,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'finish',
-        component: PasswregiordResetFinishPage,
+        component: PasswordResetFinishPage,
     },
 ];
 
