@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../../containers/explore-contai
 import {RegisterPage} from "./register.page";
 import {RegisterPageRoutingModule} from "./register-routing.module";
 import {BonlySharedLibsModule} from "../../shared/shared-libs.module";
+import {TermsModalPage} from "./terms/terms.page";
 
 @NgModule({
     imports: [
@@ -16,8 +17,9 @@ import {BonlySharedLibsModule} from "../../shared/shared-libs.module";
         FormsModule,
         ReactiveFormsModule,
         RegisterPageRoutingModule,
-        BonlySharedLibsModule
+        BonlySharedLibsModule,
+
     ],
-  declarations: [RegisterPage]
+  declarations: [RegisterPage, TermsModalPage]
 })
 export class RegisterPageModule {}

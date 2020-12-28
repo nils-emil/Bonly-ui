@@ -5,20 +5,21 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {RegisterService} from './register.service';
 import {Router} from '@angular/router';
 import {EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE} from "../../shared/constants/error.constants";
+import {PrizeRegistrationModalComponent} from "../tab1/prize-registration-modal/prize-registration-modal.component";
+import {ModalController} from "@ionic/angular";
+import {TermsModalPage} from "./terms/terms.page";
 
 @Component({
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss']
 })
-export class RegisterPage implements AfterViewInit {
-  @ViewChild('login', {static: false})
-  login?: ElementRef;
-
+export class RegisterPage {
   doNotMatch = false;
   error = false;
   errorEmailExists = false;
   errorUserExists = false;
   success = false;
+  termsNotAccepted: boolean;
 
   registerForm = this.fb.group({
     login: [
@@ -35,30 +36,40 @@ export class RegisterPage implements AfterViewInit {
     email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    termsAndConditions: ['false', [Validators.required, Validators.pattern("true")]],
   });
+
 
   constructor(
       private registerService: RegisterService,
       private router: Router,
-      private fb: FormBuilder
+      private fb: FormBuilder,
+      public modalController: ModalController
   ) {
   }
 
-  // todo move to login component
-  ngAfterViewInit(): void {
-    if (this.login) {
-      this.login.nativeElement.focus();
-    }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: TermsModalPage,
+      cssClass: 'prize-registration-modal'
+    });
+    return await modal.present();
   }
+
 
   register(): void {
     this.doNotMatch = false;
     this.error = false;
     this.errorEmailExists = false;
     this.errorUserExists = false;
-
+    this.termsNotAccepted = false;
     const password = this.registerForm.get(['password'])!.value;
-    if (password !== this.registerForm.get(['confirmPassword'])!.value) {
+    const terms = this.registerForm.get(['termsAndConditions'])!.value;
+    if (terms !== true) {
+      this.doNotMatch = true;
+      this.termsNotAccepted = true;
+    }
+    else if (password !== this.registerForm.get(['confirmPassword'])!.value) {
       this.doNotMatch = true;
     } else {
       const login = this.registerForm.get(['login'])!.value;

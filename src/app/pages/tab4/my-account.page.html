@@ -61,30 +61,30 @@
                 </div>
             </div>
 
-            <div [className]="showMoreInpts ? 'height-animatation' : 'display-none'">
-                <ion-item  class="mt-10 pr-15">
-                    <ion-label>Born</ion-label>
-                    <ion-datetime id="age" formControlName="age" displayFormat="YYYY" min="1940" max="2010"></ion-datetime>
-                </ion-item>
+<!--            <div [className]="showMoreInpts ? 'height-animatation' : 'display-none'">-->
+<!--                <ion-item  class="mt-10 pr-15">-->
+<!--                    <ion-label>Born</ion-label>-->
+<!--                    <ion-datetime id="age" formControlName="age" displayFormat="YYYY" min="1940" max="2010"></ion-datetime>-->
+<!--                </ion-item>-->
 
 
-                <div class="button-container-gender mt-15">
-                    <ion-button style="width: 45%" [disabled]="account.gender === 'MALE'" color=""
-                                (click)="selectGender('MALE')">MALE
-                    </ion-button>
+<!--                <div class="button-container-gender mt-15">-->
+<!--                    <ion-button style="width: 45%" [disabled]="account.gender === 'MALE'" color=""-->
+<!--                                (click)="selectGender('MALE')">MALE-->
+<!--                    </ion-button>-->
 
-                    <ion-button style="width: 45%" [disabled]="account.gender === 'FEMALE'" color=""
-                                (click)="selectGender('FEMALE')">FEMALE
-                    </ion-button>
+<!--                    <ion-button style="width: 45%" [disabled]="account.gender === 'FEMALE'" color=""-->
+<!--                                (click)="selectGender('FEMALE')">FEMALE-->
+<!--                    </ion-button>-->
 
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->
 
 
-            <div class="text-align-right mt-30">
-                <span *ngIf="!showMoreInpts" (click)="showMoreInpts = true">More...</span>
-                <span *ngIf="showMoreInpts" (click)="showMoreInpts = false">See less..</span>
-            </div>
+<!--            <div class="text-align-right mt-30">-->
+<!--                <span *ngIf="!showMoreInpts" (click)="showMoreInpts = true">More...</span>-->
+<!--                <span *ngIf="showMoreInpts" (click)="showMoreInpts = false">See less..</span>-->
+<!--            </div>-->
 
 
             <div class="flex-col">
