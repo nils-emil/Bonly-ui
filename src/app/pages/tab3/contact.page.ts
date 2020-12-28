@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ContactService} from "./contact.service";
 
 @Component({
   selector: 'bonly-contact',
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['contact.page.scss']
 })
 export class ContactPage {
+  private placeholderText: any;
 
-  constructor() {}
+  constructor(private contactService: ContactService) {
+  }
 
+  ngOnInit(): void {
+    this.contactService.getPlaceholderText()
+        .subscribe(e => {
+          this.placeholderText = e;
+        })
+  }
 }

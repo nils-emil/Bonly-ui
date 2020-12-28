@@ -10,7 +10,7 @@ export interface IPrize {
   type?: string;
   creditsRequired?: number;
   winnerId?: number;
-  winnerLogin?: string;
+  winner?: string;
 }
 
 export class Prize implements IPrize {
@@ -24,7 +24,7 @@ export class Prize implements IPrize {
       public type?: string,
       public creditsRequired?: number,
       public winnerId?: number,
-      public winnerLogin?: string
+      public winner?: string
   ) {
   }
 }

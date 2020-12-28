@@ -17,6 +17,10 @@ export class AdvertisementService {
 
   constructor(protected http: HttpClient) {}
 
+  getPlaceholderText(): any {
+    return this.http.get("https://raw.githubusercontent.com/nils-emil/texts/main/no_more_prizes",  {responseType: 'text'});
+  }
+
   create(advertisement: IAdvertisement): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(advertisement);
     return this.http

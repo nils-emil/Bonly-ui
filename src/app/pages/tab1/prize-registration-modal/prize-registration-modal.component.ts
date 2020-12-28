@@ -4,7 +4,7 @@ import {Prize} from "../../../shared/model/prize.model";
 import {PrizeRegistrationService} from "./prize-registration.service";
 import {Account} from '../../../core/user/account.model';
 import {ModalController, ToastController} from "@ionic/angular";
-import {AdvertisementService} from "../../tab2/advertisement.service";
+import {SERVER_API_URL} from "../../../../environments/environment";
 
 @Component({
   selector: 'jhi-prize-registration-modal',
@@ -19,18 +19,18 @@ export class PrizeRegistrationModalComponent implements OnInit {
 
   @Input() creditsRequired;
   @Input() id;
-  @Input() image;
+  @Input() imageId;
   @Input() type;
   @Input() winner;
   @Input() title;
-
+  public imageDownload = SERVER_API_URL + "api/image/";
+  private numberOfTickets: number | null;
   constructor(
       private accountSercice: AccountService,
       public prizeRegistrationService: PrizeRegistrationService,
       public modalController: ModalController,
       public toastController: ToastController
   ) {
-
   }
 
   ngOnInit(): void {
@@ -43,6 +43,10 @@ export class PrizeRegistrationModalComponent implements OnInit {
     if (this.type == 'MONTHLY') {
       this.color = "tertiary"
     }
+    this.prizeRegistrationService.findNumberOfRegistraionsByPrizeId(this.id).subscribe(e => {
+      this.numberOfTickets = e.body;
+    });
+
     this.accountSercice.getAccount().subscribe(e => {
       this.account = e;
     });
@@ -70,6 +74,9 @@ export class PrizeRegistrationModalComponent implements OnInit {
           this.presentToastWithOptions();
           this.accountSercice.getAccount().subscribe(e => {
             this.account = e;
+            this.prizeRegistrationService.findNumberOfRegistraionsByPrizeId(this.id).subscribe(e => {
+              this.numberOfTickets = e.body;
+            });
           });
         },
         () => {

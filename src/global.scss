@@ -49,6 +49,7 @@ p {
 }
 
 .button-container {
+  z-index: -1;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -178,4 +179,41 @@ ion-content > div {
   transform: translate(-50%, -50%);
   left: 50%;
   line-height: 2;
+}
+
+.loading-spinner {
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
+  top: 50vh;
+}
+
+.bonly-image-content {
+  min-height: 20rem;
+}
+
+.bonly-logo {
+  font-size: 3rem;
+  height: 3rem;
+  color: var(--logo-color);
+  font-family: Rubik Mono One, Montserrat, 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  display: block;
+  font-style: normal;
+  margin-bottom: 2rem;
+  z-index: 5;
+}
+
+.contact {
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  line-height: 2;
+}
+
+.container {
+  height: calc(100vh - 56px);
+  overflow: hidden;
 }

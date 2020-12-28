@@ -6,6 +6,7 @@ import {HttpResponse} from "@angular/common/http";
 import {PrizeService} from "./prize.service";
 import {ModalController} from "@ionic/angular";
 import {PrizeRegistrationModalComponent} from "./prize-registration-modal/prize-registration-modal.component";
+import {SERVER_API_URL} from "../../../environments/environment";
 
 @Component({
   selector: 'bonly-awards',
@@ -21,16 +22,11 @@ export class AwardsPage {
   predicate: string;
   ascending: boolean;
   availableCreditCount = 0;
+  loading = true;
   public triangles: number[];
   public ribbons: number[];
+  public imageDownload = SERVER_API_URL + "api/image/";
 
-
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400,
-
-    swipeToClose: true,
-  };
   constructor(
       protected prizeService: PrizeService,
       protected accountSercice: AccountService,
@@ -56,6 +52,7 @@ export class AwardsPage {
   }
 
   loadAll(): void {
+    this.loading = true;
     this.prizeService
         .query({
           page: this.page,
@@ -63,6 +60,7 @@ export class AwardsPage {
           sort: this.sort(),
         })
         .subscribe((res: HttpResponse<IPrize[]>) => {
+          this.loading = false;
           this.prizesExist = !!res.body;
           this.prizes = res.body || [];
         });

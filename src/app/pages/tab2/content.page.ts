@@ -3,6 +3,7 @@ import {Advertisement, IAdvertisement} from "../../shared/model/advertisement.mo
 import {AdvertisementService} from "./advertisement.service";
 import {ToastController} from "@ionic/angular";
 import {AdvertisementAnswers} from "../../shared/model/advertisement-answers.model";
+import {SERVER_API_URL} from "../../../environments/environment";
 
 @Component({
     selector: 'app-tab2',
@@ -16,24 +17,34 @@ export class ContentPage implements OnInit {
     public adExist = false;
     public chosenAnswer: number = null;
     public answerSubmitted = false;
+    public loading = true;
+    public imageDownload = SERVER_API_URL + "api/image/";
+    private placeholderText: any;
 
     constructor(private adService: AdvertisementService, public toastController: ToastController) {
     }
 
-
     ngOnInit(): void {
         this.findAnAddToShow();
+        this.adService.getPlaceholderText()
+            .subscribe(e => {
+                console.log(e)
+                this.placeholderText = e;
+            })
     }
 
     private findAnAddToShow(): void {
+        this.loading = true;
         this.advertisement = null;
         this.answerSubmitted = false;
         this.adService.findOneAdToShow().subscribe(e => {
             if (e && e.body) {
                 this.adExist = true;
                 this.advertisement = e.body;
+                this.loading = false;
             } else {
                 this.adExist = false;
+                this.loading = false;
             }
         });
     }
@@ -92,4 +103,9 @@ export class ContentPage implements OnInit {
         );
     }
 
+    getNextMonday(): Date {
+        var d = new Date();
+        d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
+        return d
+    }
 }

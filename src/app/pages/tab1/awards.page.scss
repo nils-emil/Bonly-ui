@@ -6,6 +6,7 @@
 ion-card-header {
   z-index: 3;
 }
+
 .award-card {
   color: white;
   border-radius: 1.5rem;
@@ -49,12 +50,34 @@ ion-card-header {
   border-radius: 50%;
 }
 
+.prize-preview-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 50%;
+  max-width: 10rem;
+  max-height: 10rem;
+}
+
+.lottery-winner {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.blurred {
+  filter: blur(3px);
+}
+
 .ribbon {
   position: absolute;
 }
 
 .bubble-sm {
-  position: relative;
+  position: absolute;
   left: 2rem;
   width: 1.75rem;
   height: 1.75rem;

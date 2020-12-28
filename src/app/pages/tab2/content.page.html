@@ -1,8 +1,8 @@
 <ion-content [fullscreen]="true">
-    <div *ngIf="adExist && advertisement" class="fade-in">
+    <div *ngIf="!loading && adExist && advertisement" class="fade-in">
         <h6 class="pl-20 pt-20">{{advertisement?.question}}</h6>
         <ion-card class="bonly-image-content">
-            <ion-img src="{{advertisement?.image}}">
+            <ion-img src="{{imageDownload + advertisement.imageId}}">
             </ion-img>
         </ion-card>
         <div class="grid-container" id="grid-container">
@@ -15,11 +15,10 @@
             </button>
         </div>
     </div>
-    <div *ngIf="!adExist">
-        <div class="text-center center-small-text">
-            <p class="text-bold">Oops!</p>
-            <p class="text-bold">No more ads to show :(</p>
-            <p>Try again later</p>
-        </div>
+    <div *ngIf="!loading && !adExist">
+        <div [innerHTML]="placeholderText"></div>
+    </div>
+    <div *ngIf="loading" class="loading-spinner">
+        <ion-spinner name="dots"></ion-spinner>
     </div>
 </ion-content>

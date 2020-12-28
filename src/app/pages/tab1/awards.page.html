@@ -1,6 +1,5 @@
 <ion-content [fullscreen]="true">
-
-    <div *ngIf="prizesExist" class="mt-40">
+    <div *ngIf="!loading && prizesExist" class="mt-40">
         <div class="award-card-container" *ngFor="let prize of prizes"
              (click)="!prize.winnerId ? openPrizeRegistration(prize) : null">
             <ion-card (click)="presentModal(prize)" class="award-card" [ngClass]="{'award-card--yellow': prize.type == 'MONTHLY',
@@ -18,7 +17,6 @@
                     <div *ngFor="let i of triangles" [className]="'arrow arrow-left arrow-3-pos-' + i"></div>
                     <div *ngFor="let i of triangles" [className]="'arrow arrow-right arrow-4-pos-' + i"></div>
                 </div>
-
                 <div *ngIf="prize.type == 'WEEKLY'">
                     <div *ngFor="let i of triangles" [className]="'bubble-sm bubble-pos-' + i">
                         <svg class="svg-sm" viewBox="0 0 120 120">
@@ -37,23 +35,24 @@
                         </svg>
                     </div>
                 </div>
-
-                <ion-card-content>
-                    <div class="lottery-winner" *ngIf="prize.winnerId">
+                <ion-card-content class="mt-20">
+                    <div class="lottery-winner" *ngIf="prize.winner">
                         <p class="secondary">Winner</p>
-                        <p class="primary">{{prize.winnerLogin}}</p>
+                        <p class="primary">{{prize.winner}}</p>
                     </div>
+                    <img [className]="!prize.winner ? 'prize-preview-image' : 'blurred prize-preview-image'" src="{{imageDownload + prize.imageId}}"
+                         alt="Prize">
                 </ion-card-content>
                 <ion-card-content class="award-card--footer">
-                    <div class="lottery-winner">
+                    <div class="lottery-title">
                         <p class="secondary">Prize:</p>
-                        <p class="primary">{{prize.title}}1</p>
+                        <p class="primary">{{prize.title}}</p>
                     </div>
                 </ion-card-content>
             </ion-card>
         </div>
     </div>
-    <div *ngIf="!prizesExist">
+    <div *ngIf="!loading && !prizesExist">
         <div class="full-height">
             <div class="text-center center-small-text">
                 <p>Oops!</p>
@@ -61,6 +60,10 @@
                 <p>Try again later</p>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="loading" class="loading-spinner">
+        <ion-spinner name="dots"></ion-spinner>
     </div>
 
 </ion-content>

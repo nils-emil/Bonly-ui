@@ -5,28 +5,38 @@
         <ion-card style="width: 90%">
             <ion-card-header>
                 <ion-card-subtitle>
-                    {{account?.creditCount}}
+                    You have {{account?.creditCount}}
                     <ion-icon name="star" color="{{color}}"></ion-icon>
-                    current balance
                 </ion-card-subtitle>
                 <ion-card-subtitle>
-                    {{creditsRequired }}
+                    Costs {{creditsRequired }}
                     <ion-icon name="star" color="{{color}}"></ion-icon>
-                    to register
+                    to register to one lottery
+                </ion-card-subtitle>
+            </ion-card-header>
+        </ion-card>
+
+        <ion-card style="width: 90%" *ngIf="numberOfTickets && numberOfTickets.count > 0">
+            <ion-card-header>
+                <ion-card-subtitle>
+                    I have {{ numberOfTickets.count }}
+                    <ion-icon name="ticket" color="{{color}}"></ion-icon>
+                    tickets in the lottery
                 </ion-card-subtitle>
             </ion-card-header>
         </ion-card>
 
         <ion-card style="width: 90%">
             <img style="width: 100%"
-                 [className]="!winner ? 'object-fit-cover' : 'blurred object-fit-cover'" src="{{image}}"
+                 [className]="!winner ? 'object-fit-cover' : 'blurred object-fit-cover'"  src="{{imageDownload + imageId}}"
                  alt="Prize">
         </ion-card>
         <div class="modal-bottons mb-40">
-            <ion-button [disabled]="account?.creditCount < creditsRequired" color="{{color}}" class="button-register"
+            <ion-button *ngIf="!winner"
+                        [disabled]="account?.creditCount < creditsRequired" color="{{color}}" class="button-register"
                         (click)="register()">Register
             </ion-button>
-            <ion-button color="light" class="button-cancel" (click)="dismiss()">Cancel</ion-button>
+            <ion-button color="light" class="button-cancel" (click)="dismiss()">Close</ion-button>
         </div>
     </form>
 </ion-content>
