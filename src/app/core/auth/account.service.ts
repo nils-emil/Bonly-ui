@@ -45,11 +45,7 @@ export class AccountService {
                 }),
                 tap((account: Account | null) => {
                     this.authenticate(account);
-                    if (account && (!account.age)) {
-                        this.router.navigate(['/account/age']);
-                    } else if (account && (!account.gender)) {
-                        this.router.navigate(['/account/gender']);
-                    }
+                    this.router.navigate(['/tabs/contact']);
                 }),
                 shareReplay()
             );

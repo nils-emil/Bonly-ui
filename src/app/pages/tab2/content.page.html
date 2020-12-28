@@ -16,7 +16,7 @@
         </div>
     </div>
     <div *ngIf="!loading && !adExist">
-        <div [innerHTML]="placeholderText"></div>
+        <div class="min-width-text-content" [innerHTML]="placeholderText"></div>
     </div>
     <div *ngIf="loading" class="loading-spinner">
         <ion-spinner name="dots"></ion-spinner>

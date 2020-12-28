@@ -31,7 +31,7 @@
                         <ion-checkbox formControlName="termsAndConditions"></ion-checkbox>
                     </ion-item>
                 </div>
-                <div class="content-max-width align-center mt-20 pl-20 pr-20">
+                <div class="content-max-width align-center mt-20 pl-10">
                     <div class="">
                         <div class="">
                             <div class="alert alert-danger" *ngIf="error">
@@ -53,20 +53,22 @@
                     </div>
                 </div>
             </div>
-            <div class="form-container text-center" *ngIf="success">
-                <div class="alert alert-success">
-                    <strong>Registration saved!</strong>
-                    <br>
-                    Please check your email for confirmation.
+            <div class="content-max-width align-center">
+                <div class="mb-60 text-center" *ngIf="success">
+                    <div class="alert alert-success">
+                        <strong>Registration saved!</strong>
+                        <br>
+                        Please check your email for confirmation.
+                    </div>
                 </div>
-            </div>
-            <div style="display: flex; flex-direction: column; max-width: 15rem; justify-content: center; margin: 0 auto; margin-top: 2rem">
-                <button class="bonly-ui-button" type="submit" *ngIf="!success">
-                    Register
-                </button>
-                <button class="bonly-ui-button" type="button" (click)="backToHomePage()">
-                    Back
-                </button>
+                <div style="display: flex; flex-direction: column; max-width: 15rem; justify-content: center; margin: 0 auto; margin-top: 2rem">
+                    <button class="bonly-ui-button" type="submit" *ngIf="!success">
+                        Register
+                    </button>
+                    <button class="bonly-ui-button" type="button" (click)="backToHomePage()">
+                        Back
+                    </button>
+                </div>
             </div>
         </div>
     </form>

@@ -66,7 +66,6 @@ export class RegisterPage {
     const password = this.registerForm.get(['password'])!.value;
     const terms = this.registerForm.get(['termsAndConditions'])!.value;
     if (terms !== true) {
-      this.doNotMatch = true;
       this.termsNotAccepted = true;
     }
     else if (password !== this.registerForm.get(['confirmPassword'])!.value) {

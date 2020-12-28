@@ -28,7 +28,6 @@ export class ContentPage implements OnInit {
         this.findAnAddToShow();
         this.adService.getPlaceholderText()
             .subscribe(e => {
-                console.log(e)
                 this.placeholderText = e;
             })
     }

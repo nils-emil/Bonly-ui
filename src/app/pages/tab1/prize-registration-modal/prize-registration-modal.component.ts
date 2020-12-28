@@ -5,6 +5,7 @@ import {PrizeRegistrationService} from "./prize-registration.service";
 import {Account} from '../../../core/user/account.model';
 import {ModalController, ToastController} from "@ionic/angular";
 import {SERVER_API_URL} from "../../../../environments/environment";
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'jhi-prize-registration-modal',
@@ -74,8 +75,18 @@ export class PrizeRegistrationModalComponent implements OnInit {
           this.presentToastWithOptions();
           this.accountSercice.getAccount().subscribe(e => {
             this.account = e;
+            confetti.create()({
+              shapes: ['square'],
+              particleCount: 200,
+              spread: 100,
+              origin: {
+                y: (1),
+                x: (0.25)
+              }
+            });
             this.prizeRegistrationService.findNumberOfRegistraionsByPrizeId(this.id).subscribe(e => {
-              this.numberOfTickets = e.body;
+              this.numberOfTickets = e.body.count;
+
             });
           });
         },

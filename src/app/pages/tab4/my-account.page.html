@@ -7,7 +7,7 @@
                 <ion-label position="floating">Username</ion-label>
                 <ion-input type="text" formControlName="login"></ion-input>
             </ion-item>
-            <div class="form-group">
+            <div class="form-group pl-20">
                 <div
                         *ngIf="settingsForm.get('login')!.invalid && (settingsForm.get('login')!.dirty || settingsForm.get('login')!.touched)">
                     <small class="form-text text-danger"
@@ -35,7 +35,7 @@
                 <ion-input type="email" formControlName="email"></ion-input>
             </ion-item>
 
-            <div class="form-group">
+            <div class="form-group pl-20">
 
                 <div
                         *ngIf="settingsForm.get('email')!.invalid && (settingsForm.get('email')!.dirty || settingsForm.get('email')!.touched)">

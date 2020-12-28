@@ -37,8 +37,7 @@
                 </div>
                 <ion-card-content class="mt-20">
                     <div class="lottery-winner" *ngIf="prize.winner">
-                        <p class="secondary">Winner</p>
-                        <p class="primary">{{prize.winner}}</p>
+                        <p class="secondary"><b>Winner:</b> {{prize.winner}}</p>
                     </div>
                     <img [className]="!prize.winner ? 'prize-preview-image' : 'blurred prize-preview-image'" src="{{imageDownload + prize.imageId}}"
                          alt="Prize">
