@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
     <div *ngIf="!loading && adExist && advertisement" class="fade-in">
-        <h6 class="pl-20 pt-20">{{advertisement?.question}}</h6>
+        <h6 class="pl-20 pt-20 pr-20" style="max-width: 24rem">{{advertisement?.question}}</h6>
         <ion-card class="bonly-image-content">
             <ion-img src="{{imageDownload + advertisement.imageId}}">
             </ion-img>
         </ion-card>
-        <div class="grid-container" id="grid-container">
+        <div class="grid-container pb-20" id="grid-container">
             <button class=" flex-item"
                     [ngClass]="{'correct-answer': answer?.correct && answerSubmitted,
                     'incorrect-answer': answerSubmitted && !answer?.correct}"

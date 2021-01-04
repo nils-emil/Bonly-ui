@@ -1,11 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {AccountService} from "../../../core/auth/account.service";
 import {Prize} from "../../../shared/model/prize.model";
 import {PrizeRegistrationService} from "./prize-registration.service";
 import {Account} from '../../../core/user/account.model';
-import {ModalController, ToastController} from "@ionic/angular";
+import {ModalController, Platform, ToastController} from "@ionic/angular";
 import {SERVER_API_URL} from "../../../../environments/environment";
 import * as confetti from 'canvas-confetti';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'jhi-prize-registration-modal',
@@ -27,14 +28,21 @@ export class PrizeRegistrationModalComponent implements OnInit {
   public imageDownload = SERVER_API_URL + "api/image/";
   public numberOfTickets: number | null;
   constructor(
+      private platform: Platform,
       private accountSercice: AccountService,
       public prizeRegistrationService: PrizeRegistrationService,
       public modalController: ModalController,
-      public toastController: ToastController
+      public toastController: ToastController,
+      private router: Router
   ) {
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.modalController.dismiss()
+      }
+    });
     if (this.type == 'DAILY') {
       this.color = "primary"
     }

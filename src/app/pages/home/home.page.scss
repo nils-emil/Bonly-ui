@@ -5,9 +5,28 @@
   top: 15vh;
 }
 
+.logo {
+  width: 100%;
+  max-width: 20rem;
+}
+
+@media only screen and (max-height: 600px) {
+  .logo {
+    max-width: 20rem;
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-height: 475px) {
+  .logo {
+    max-width: 20rem;
+    width: 5rem;
+  }
+}
+
 .bonly-logo {
   font-size: 9rem;
-  height: 9rem;
+  height: 20rem;
   color: var(--logo-color);
   font-family: Rubik Mono One, Montserrat, 'Helvetica Neue', sans-serif;
   font-weight: 400;

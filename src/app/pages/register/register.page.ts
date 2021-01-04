@@ -16,6 +16,7 @@ import {TermsModalPage} from "./terms/terms.page";
 export class RegisterPage {
   doNotMatch = false;
   error = false;
+  errorMessage = "";
   errorEmailExists = false;
   errorUserExists = false;
   success = false;
@@ -85,12 +86,13 @@ export class RegisterPage {
   }
 
   private processError(response: HttpErrorResponse): void {
+    debugger;
     if (response.status === 400 && response.error.type === LOGIN_ALREADY_USED_TYPE) {
       this.errorUserExists = true;
     } else if (response.status === 400 && response.error.type === EMAIL_ALREADY_USED_TYPE) {
       this.errorEmailExists = true;
     } else {
-      this.error = response.error.message;
+      this.error = response.error.title;
     }
   }
 

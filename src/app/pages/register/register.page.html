@@ -36,6 +36,7 @@
                         <div class="">
                             <div class="alert alert-danger" *ngIf="error">
                                 <strong>Registration failed!</strong> Please try again later.
+                                {{error}}
                             </div>
                             <div class="alert alert-danger" *ngIf="errorUserExists">
                                 <strong>Login name already registered!</strong> Please choose another one.

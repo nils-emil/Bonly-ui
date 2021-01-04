@@ -58,8 +58,9 @@ export class ContentPage implements OnInit {
 
     async presentToastWithOptions(creditsEarned: number) {
         if (creditsEarned > 0) {
+            let creditsString = creditsEarned === 1 ? 'credit' : 'credits';
             const toast = await this.toastController.create({
-                header: 'You earned ' + creditsEarned + ' credits from this question',
+                header: 'You earned ' + creditsEarned + ' ' + creditsString + ' from this question',
                 position: 'top',
                 animated: true,
                 color: "primary",

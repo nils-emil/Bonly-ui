@@ -215,6 +215,19 @@ ion-content > div {
   line-height: 2;
 }
 
+.beta-info-contact {
+  line-height: 2;
+}
+
+.beta-info {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  line-height: 2;
+  white-space: pre-line;
+  max-width: 25rem;
+}
+
 .container {
   height: calc(100vh - 56px);
   overflow: hidden;

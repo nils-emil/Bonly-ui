@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContactService} from "./contact.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {ContactService} from "./contact.service";
   templateUrl: 'contact.page.html',
   styleUrls: ['contact.page.scss']
 })
-export class ContactPage {
+export class ContactPage implements OnInit {
   public placeholderText: any;
 
   constructor(private contactService: ContactService) {
